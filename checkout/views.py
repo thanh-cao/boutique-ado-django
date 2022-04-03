@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
-from bag.contexts import bag_contents
+from shoppingbag.contexts import bag_contents
 
 import stripe
 
@@ -36,7 +36,7 @@ def checkout(request):
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
-        'stripe_public_key': 'stripe_public_key',
+        'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
 
